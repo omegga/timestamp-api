@@ -43,7 +43,7 @@ var server = http.createServer(function(req, res) {
   
   if (req.url === "/") {
     var date = new Date();
-    var d = date.getDay();
+    var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
     var urlToAdd = "/" + months[m] + " " + d + ", " + y;
@@ -54,7 +54,6 @@ var server = http.createServer(function(req, res) {
     path = decodeURI(path);
   
     var result = convertDate(path);
-  
   
     res.writeHead(200, {"Content-Type": "application/json"});
     res.end(JSON.stringify(result));
